@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.right {
+ float:right;
+}
+.canvas {
+ float:left;
+ margin-right: 10px;
+}
+.tower {
+ display:inline-block;
+ padding: 5px;
+ border: 1px solid;
+}
+</style>
+</head>
+<body>
+<canvas id='canvas' class='canvas' width='600' height='600' style='border:1px solid #000;'>Looks like HTML% canvas is turned off. Sorry, this tower defense game needs canvas to work</canvas> 
+<div class='tower' style='background-color: green;' onclick='changeTower(0);'>
+Tower 1
+<br>
+Range: med
+<br>
+Damage: med
+<br>
+Rate: med
+<br>
+Cost: 25
+</div>
+<p>
+<div class='tower' style='background-color: brown;' onclick='changeTower(1);'>
+Tower 2
+<br>
+Range: long
+<br>
+Damage: med
+<br>
+Rate: high
+<br>
+Cost: 50 
+</div>
+<p>
+<div class='tower' style='background-color:aqua;' onclick='changeTower(2);'>
+Tower 3
+<br>
+Range: short
+<br>
+Damage: high
+<br>
+Rate: med
+<br>
+Cost: 25 
+</div>
+<br>
+<div style='width:600px;'>
+Attackers Score: <span id='attackersScore'>0</span>
+<span class='right'>Money: <span id='money'>100</span></span>
+<br>
+Attackers Stopped: <span id='stopped'>0</span>
+</div>
+<script type='text/javascript' src='mainLoop.js'></script>
+<script type='text/javascript' src='attackerUnits.js'></script>
+<script type='text/javascript' src='towerUnits.js'></script>
+<script type='text/javascript' src='bullets.js'></script>
+<script type='text/javascript' src='mouseClick.js'></script>
+</body>
+</html>
