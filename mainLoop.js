@@ -17,8 +17,8 @@ thirdBorder = maxWidth*3/4,
 attackerPoints = 0,
 stopped = 0,
 //counter for when to add enemy units
-addEnemyTimer = 5,
-money = 100,
+addEnemyTimer = 60,
+money = 250,
 moneyIncrement = 5;
 
 
@@ -45,7 +45,7 @@ mainLoopLogic = function() {
   addEnemyTimer--;
   if(addEnemyTimer<1) {
     addEnemy()
-    addEnemyTimer = 30 - Math.floor(stopped/5); //less time the more attackers stopped. in other words, more rapid enemy creation the more enemies stopped
+    addEnemyTimer = (stopped > 40) ? 20 : 30;  //how quicklly a new enemy is generated
   }
   for(var i =0, j = enemies.length; i < j; i ++ ) {
     //true if attacker scored

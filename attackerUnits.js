@@ -1,13 +1,14 @@
 var enemies = [];
+var addedLife = 0; //incremented in checkForDead()
 
 function Enemy(x,y) {
   this.x = x,
   this.y = y,
-  this.life = this.maxLife
+  this.life = this.maxLife + addedLife;
 }
 
 //common to all Emeny objects
-Enemy.prototype.maxLife = 40; 
+Enemy.prototype.maxLife = 40;
 Enemy.prototype.speed = baseSpeed;
 Enemy.prototype.color = 'red';
 
@@ -17,7 +18,7 @@ Enemy.prototype.draw = function() {
   context.fillRect(this.x,this.y,rectWidth,rectWidth);
   //life bar
   context.fillStyle='orange';
-  context.fillRect(this.x,this.y+rectWidth/3,rectWidth*this.life/this.maxLife,rectWidth/3);
+  context.fillRect(this.x,this.y+rectWidth/3,rectWidth*this.life/(this.maxLife+addedLife),rectWidth/3);
 };
 
 Enemy.prototype.move = function() {
@@ -39,6 +40,7 @@ Enemy.prototype.move = function() {
 function checkForDead() {
   for (var i = 0, j = enemies.length; i < j; i++ ) {
     if (enemies[i].life <=0) {
+      addedLife = Math.floor(stopped/10) * (1 + Math.floor(stopped/100)); //used to make enemies tougher as the number of stopped enemies goes up
       document.getElementById('stopped').innerHTML = ++stopped;
       money += moneyIncrement;
       document.getElementById('money').innerHTML = money;
@@ -68,7 +70,7 @@ var FastEnemy = function(x,y) {
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
 
-FastEnemy.prototype.speed = Enemy.prototype.speed*1.5;
+FastEnemy.prototype.speed = Enemy.prototype.speed*1.4;
 FastEnemy.prototype.color = 'DarkRed';
 
 //stronger enemy

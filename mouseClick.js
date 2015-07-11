@@ -5,7 +5,7 @@ function changeTower(n) {
 
 //add tower
 canvas.addEventListener('mousedown', function() {
-  if(towerAllowed(mouse.x,mouse.y) && money >= towerClasses[currentTower].prototype.cost){
+  if(towerAllowed(mouse.x,mouse.y)) {
     towers.push(new towerClasses[currentTower](mouse.x,mouse.y));
     money -= towerClasses[currentTower].prototype.cost;
     document.getElementById('money').innerHTML = money; //update money when adding tower
@@ -41,6 +41,7 @@ function drawMouse() {
 //see if tower can be built here:
 //starts at top of page
 function towerAllowed(x,y) {
+  if (money < towerClasses[currentTower].prototype.cost) return false; //can afford tower?
   if( y < rectWidth*3) return false;
   else if (y < firstBorder+rectWidth*2 && x > rightBorder- rectWidth  ) return false;
   else if (y > firstBorder - rectWidth && y < firstBorder + rectWidth *2 && x > leftBorder - rectWidth) return false;

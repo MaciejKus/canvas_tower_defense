@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>HTML5/Canvas/Javascript tower defense game</title>
+ <meta name="description" content="A tower defense game made with JavaScript and Canvas.">
 <style>
 .right {
  float:right;
@@ -27,7 +29,7 @@ Damage: med
 <br>
 Rate: med
 <br>
-Cost: 25
+Cost: 50
 </div>
 <p>
 <div class='tower' style='background-color: brown;' onclick='changeTower(1);'>
@@ -39,7 +41,7 @@ Damage: med
 <br>
 Rate: high
 <br>
-Cost: 50 
+Cost: 75 
 </div>
 <p>
 <div class='tower' style='background-color:aqua;' onclick='changeTower(2);'>
@@ -51,12 +53,12 @@ Damage: high
 <br>
 Rate: med
 <br>
-Cost: 25 
+Cost: 75 
 </div>
 <br>
 <div style='width:600px;'>
 Attackers Score: <span id='attackersScore'>0</span>
-<span class='right'>Money: <span id='money'>100</span></span>
+<span class='right'>Money: <span id='money'>250</span></span>
 <br>
 Attackers Stopped: <span id='stopped'>0</span>
 </div>

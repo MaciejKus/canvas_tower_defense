@@ -12,7 +12,7 @@ Tower.prototype.rateOfFire = FPS; //smaller means more bullets per second
 Tower.prototype.range = rectWidth*5;
 Tower.prototype.hurt = Enemy.prototype.maxLife/6;;
 Tower.prototype.color = 'green';
-Tower.prototype.cost = 25;
+Tower.prototype.cost = 50;
 
 Tower.prototype.findTarget = function() {
   //if no enemies, no target
@@ -79,7 +79,7 @@ Tower2.prototype.constructor = Tower2;
 
 Tower2.prototype.range = Tower.prototype.range*1.4;//looking to double area, not radius or range
 Tower2.prototype.color = 'brown';
-Tower2.prototype.cost = 50;
+Tower2.prototype.cost = Tower.prototype.cost * 1.5;
 Tower2.prototype.rateOfFire = Tower.prototype.rateOfFire / 2;
 
 //short range high damage tower
@@ -92,6 +92,7 @@ Tower3.prototype.constructor = Tower3;
 Tower3.prototype.range = Tower.prototype.range * 0.7; //0.7 rather than 0.5 because looking at area
 Tower3.prototype.hurt = Tower.prototype.hurt*2;
 Tower3.prototype.color = 'aqua';
+Tower3.prototype.cost = Tower.prototype.cost * 1.5;
 
 
 //populate array of towers
